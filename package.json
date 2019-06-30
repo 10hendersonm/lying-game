@@ -9,7 +9,9 @@
     "debug": "nodemon --ignore \"build/\" --exec \"npm run build && npm run start\"",
     "build": "npm run build:ui && npm run build:api",
     "build:api": "babel api/src -d api/build",
-    "build:ui": "npm run build --prefix ui/"
+    "build:ui": "npm run build --prefix ui/",
+    "install-dependencies": "npm run install-dependencies:ui && npm ci",
+    "install-dependencies:ui": "npm ci --prefix ui/"
   },
   "keywords": [],
   "author": "",
