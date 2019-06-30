@@ -29,7 +29,8 @@ const theme = createMuiTheme({
 })
 
 function App() {
-  const protocol = window.location.hostname === 'localhost' ? 'ws' : 'wss'
+  const isHttps = window.location.protocol === 'https:'
+  const protocol = isHttps ? 'wss' : 'ws'
   const ws = useWebSocket({
     url: `${protocol}://${window.location.host}/api`,
   })
