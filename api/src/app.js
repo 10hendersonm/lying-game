@@ -21,13 +21,14 @@ const server = http.createServer(app)
 const wss = configureWebSocketConnection(server)
 
 app.use(cors())
-app.use(ssl)
+app.use(ssl())
 app.use(bodyParser.json())
 app.use('/api', restController(wss))
 app.use(staticFileController)
 
 const port = process.env.APP_PORT || 8080
 
-server.listen(port, () => {
+app.listen(port, () => {
+  // server.listen(port, () => {
   console.log(chalk.blue(`API available on port ${chalk.yellow(port)}.`))
 })
