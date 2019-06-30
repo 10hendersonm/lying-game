@@ -31,7 +31,7 @@ const theme = createMuiTheme({
 function App() {
   const protocol = window.location.hostname === 'localhost' ? 'ws' : 'wss'
   const ws = useWebSocket({
-    url: `/api`,
+    url: `${protocol}://${window.location.host}/api`,
   })
   const [name, setName] = useState(null)
   useEffect(() => {
