@@ -11,7 +11,8 @@
     "build:api": "babel api/src -d api/build",
     "build:ui": "npm run build --prefix ui/",
     "install-dependencies": "npm run install-dependencies:ui && npm ci",
-    "install-dependencies:ui": "npm ci --prefix ui/"
+    "install-dependencies:ui": "npm ci --prefix ui/",
+    "serve": "npm run install-dependencies && npm run build && npm run start"
   },
   "keywords": [],
   "author": "",
