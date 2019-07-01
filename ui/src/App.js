@@ -32,7 +32,7 @@ function App() {
   const isHttps = window.location.protocol === 'https:'
   const protocol = isHttps ? 'wss' : 'ws'
   const ws = useWebSocket({
-    url: `${protocol}://${window.location.host}/api`,
+    url: `${protocol}://${window.location.host}/`,
   })
   const [name, setName] = useState(null)
   useEffect(() => {
