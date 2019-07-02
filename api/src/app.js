@@ -1,5 +1,6 @@
 // server
 import createHttpsServer from './utils/createHttpsServer'
+import createHttpRedirectServer from './utils/httpRedirectServer'
 import configureWebSocketConnection from './controllers/webSocketController'
 
 // express
@@ -18,6 +19,7 @@ dotenv.config()
 var app = express()
 
 const server = createHttpsServer(app)
+createHttpRedirectServer()
 const wss = configureWebSocketConnection(server, '/websocket')
 
 app.use(cors())
@@ -25,7 +27,7 @@ app.use(bodyParser.json())
 app.use('/api', restController(wss))
 app.use(staticFileController)
 
-const port = process.env.APP_PORT || 8080
+const port = process.env.HTTPS_PORT || 8080
 
 server.listen(port, () => {
   console.log(chalk.blue(`API available on port ${chalk.yellow(port)}.`))
