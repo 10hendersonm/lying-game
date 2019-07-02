@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node .",
     "debug:comment": "can't use babel-node because it has a bug when running through a symlink...",
-    "debug": "nodemon --ignore \"build/\" --exec \"npm run build && npm run start\"",
+    "debug": "nodemon --ignore \"build/\" --exec \"npm run build:api && npm run start\"",
     "build": "npm run build:ui && npm run build:api",
     "build:api": "babel api/src -d api/build",
     "build:ui": "npm run build --prefix ui/",

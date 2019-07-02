@@ -7,23 +7,25 @@ import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   link: {
+    flex: '1 1 34%',
     textDecoration: 'none',
     color: 'inherit',
+    display: 'flex',
   },
   button: {
-    minWidth: 200,
     margin: theme.spacing(2),
+    flexGrow: 1,
   },
 }))
 
 const RoleDescription = ({ href, buttonText }) => {
   const classes = useStyles()
   return (
-      <Link className={classes.link} to={href}>
-        <Button className={classes.button} color="primary" variant="contained">
-          {buttonText}
-        </Button>
-      </Link>
+    <Link className={classes.link} to={href}>
+      <Button className={classes.button} color="primary" variant="contained">
+        {buttonText}
+      </Button>
+    </Link>
   )
 }
 

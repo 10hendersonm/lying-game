@@ -29,6 +29,10 @@ app.use(staticFileController)
 
 const port = process.env.HTTPS_PORT || 8080
 
-server.listen(port, () => {
+const dev = process.env.APP_ENV === 'dev'
+const host = dev ? app : server
+
+
+host.listen(port, () => {
   console.log(chalk.blue(`API available on port ${chalk.yellow(port)}.`))
 })
