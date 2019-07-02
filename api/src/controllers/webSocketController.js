@@ -1,7 +1,7 @@
 import WebSocket from 'ws'
 
-const createServer = server => {
-  const wss = new WebSocket.Server({ server })
+const createServer = (server, path) => {
+  const wss = new WebSocket.Server({ server, path })
   wss.broadcast = data => {
     wss.clients.forEach(client => {
       if (client.readyState === WebSocket.OPEN) {
