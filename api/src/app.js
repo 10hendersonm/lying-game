@@ -22,6 +22,9 @@ const wss = configureWebSocketConnection(server, '/websocket')
 
 app.use((req, res, next) => {
   console.log('Request received')
+  console.log(req.path)
+  console.log(req.protocol)
+  console.log()
   next()
 })
 
