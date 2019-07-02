@@ -18,7 +18,7 @@ dotenv.config()
 const app = express()
 
 const server = createHttpsServer(app)
-const wss = configureWebSocketConnection(server, '/websocket')
+const wss = configureWebSocketConnection(server)
 
 app.use(cors())
 app.use(bodyParser.json())
