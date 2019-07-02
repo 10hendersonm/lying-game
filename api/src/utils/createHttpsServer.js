@@ -10,8 +10,10 @@ export default app => {
   const sslCredentials = {
     key: privateKey,
     cert: certificate,
-    // ca,
+    ca,
   }
   const server = https.createServer(sslCredentials, app)
-  return server
+  return {
+    server, app
+  }
 }

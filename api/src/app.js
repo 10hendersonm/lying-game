@@ -15,9 +15,10 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const app = express()
+var app = express()
 
-const server = createHttpsServer(app)
+const { server, app: newApp } = createHttpsServer(app)
+app = newApp
 const wss = configureWebSocketConnection(server, '/websocket')
 
 app.use(cors())
