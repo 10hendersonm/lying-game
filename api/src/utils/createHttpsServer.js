@@ -13,7 +13,5 @@ export default app => {
     ca,
   }
   const server = https.createServer(sslCredentials, app)
-  return {
-    server, app
-  }
+  return server
 }
