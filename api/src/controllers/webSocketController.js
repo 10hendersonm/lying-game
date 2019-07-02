@@ -1,7 +1,7 @@
 import WebSocket from 'ws'
 
-const createServer = server => {
-  const wss = new WebSocket.Server({ server })
+const createServer = (server, path) => {
+  const wss = new WebSocket.Server({ server, path })
   server.on('upgrade', (req, socket, head) => {
     wss.handleUpgrade(req, socket, head, ws => {
       wss.emit('connection', ws, req)
