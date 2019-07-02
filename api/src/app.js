@@ -20,13 +20,6 @@ const app = express()
 const server = createHttpsServer(app)
 const wss = configureWebSocketConnection(server, '/websocket')
 
-app.use((req, res, next) => {
-  console.log('Request received')
-  console.log(req)
-  console.log()
-  next()
-})
-
 app.use(cors())
 app.use(bodyParser.json())
 app.use('/api', restController(wss))
