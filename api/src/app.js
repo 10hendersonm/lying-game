@@ -17,18 +17,16 @@ dotenv.config()
 
 var app = express()
 
-// app = newApp
-// const wss = configureWebSocketConnection(server, '/websocket')
+const server = createHttpsServer(app)
+const wss = configureWebSocketConnection(server, '/websocket')
 
 app.use(cors())
 app.use(bodyParser.json())
-// app.use('/api', restController(wss))
+app.use('/api', restController(wss))
 app.use(staticFileController)
 
 const port = process.env.APP_PORT || 8080
 
-// app.listen(port, () => {
-const server = createHttpsServer(app)
 server.listen(port, () => {
   console.log(chalk.blue(`API available on port ${chalk.yellow(port)}.`))
 })
